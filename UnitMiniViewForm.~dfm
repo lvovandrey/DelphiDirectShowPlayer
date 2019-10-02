@@ -1,0 +1,41 @@
+object MiniViewForm: TMiniViewForm
+  Left = 271
+  Top = 385
+  AlphaBlend = True
+  BorderStyle = bsNone
+  Caption = 'Form2'
+  ClientHeight = 163
+  ClientWidth = 203
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = False
+  OnCreate = FormCreate
+  PixelsPerInch = 102
+  TextHeight = 13
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 203
+    Height = 163
+    Align = alClient
+    Caption = 'Panel1'
+    TabOrder = 0
+    OnDblClick = Panel1DblClick
+  end
+  object TimerHide: TTimer
+    Enabled = False
+    OnTimer = TimerHideTimer
+    Left = 24
+    Top = 88
+  end
+  object TimerSlowHide: TTimer
+    Enabled = False
+    Interval = 10
+    Left = 24
+    Top = 16
+  end
+end
