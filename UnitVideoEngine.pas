@@ -86,10 +86,7 @@ implementation
 //       КОНСТРУКТОР
 constructor TVideoEngineDshow9.Create(WindowHandle: OAHWND);
 begin
-  pMode:= Empty;
-  pFullScreen:= False;
-  pFileName:='';
-  pWindowHandle:= WindowHandle;
+
 end;
 
 
@@ -97,6 +94,11 @@ end;
 procedure TVideoEngineDshow9.InitializAuto(RenderedFilePath:string; OwnerHandle:OAHWND);  //принимает строку пути к файлу  и Handle поверхности вывода (например Panel1.Handle)
 var hr: HRESULT;
 begin
+
+  pMode:= Empty;
+  pFullScreen:= False;
+  pFileName:='';
+  //pWindowHandle:= WindowHandle;
 //освобождаем подключенные интерфейсы
   if Assigned(pMediaSeeking) then  pMediaSeeking := nil;
   if Assigned(pBasicAudio) then pBasicAudio  := nil;
@@ -213,6 +215,7 @@ end;
 
 procedure TVideoEngineDshow9.SetRate(SRate:double);                      //см одноименное свойство
 begin
+pMediaSeeking.SetRate(SRate);
 end;
 
 

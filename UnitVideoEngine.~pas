@@ -68,7 +68,8 @@ type
                                                                           //принимает строку пути к файлу
                                                                           // и Handle поверхности вывода (например Panel1.Handle)
     procedure SetWindowPosition(Left:Integer;Top:Integer;Right:Integer;Bottom:Integer); // инкапсулирует одноименную DShow процедуру
-    procedure Play; //Запускает проигрывание файла
+    procedure F_Play; //Запускает проигрывание файла
+    procedure F_Pause; //Пауза в проигрывании файла
 
   end;
 
@@ -160,18 +161,18 @@ end;
 
 
 // Запуск проигрывания файла
-procedure TVideoEngineDshow9.Play;
+procedure TVideoEngineDshow9.F_Play;
 begin
   if not Assigned(pMediaControl) then exit;
   pMediaControl.Run;
-  Mode:=Play;
+  pMode:= Play;
 end;
 // Пауза проигрывания файла
-procedure TVideoEngineDshow9.Pause;
+procedure TVideoEngineDshow9.F_Pause;
 begin
   if not Assigned(pMediaControl) then exit;
   pMediaControl.Pause;
-  Mode:=Paused;
+  pMode:=Paused;
 end;
 
 
@@ -189,15 +190,18 @@ end;
 
 
 procedure TVideoEngineDshow9.SetPCurrent(SCurrent:int64);               //см одноименное свойство
+var duration: int64;
 begin
-   pMediaSeeking.GetDuration(pDuration);
-   pMediaSeeking.SetPositions(beg, AM_SEEKING_AbsolutePositioning, pDuration, AM_SEEKING_NoPositioning);
+   duration:= pDuration;
+   pMediaSeeking.SetPositions(SCurrent, AM_SEEKING_AbsolutePositioning, duration, AM_SEEKING_NoPositioning);
 end;
 
 
 function TVideoEngineDshow9.GetPDuration: int64;                        //см одноименное свойство
+var duration: int64;
 begin
-  result:=0;
+  pMediaSeeking.GetDuration(duration);
+  result:=duration;
 end;
 
 

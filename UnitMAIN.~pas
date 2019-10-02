@@ -1233,11 +1233,19 @@ begin
         end;
 
        if MiniViewForm.Ready then
-       MiniViewForm.VideoGoGo(beg,MiniWndCoord);
+       begin
+          MiniWndCoord.X:= Form1.Left+sPanel3.Left+sPanel1.Left+Panel2.Left;
+          MiniWndCoord.Y:= Form1.Top+sPanel3.top+sPanel1.top-MiniViewForm.Height-20;
+          MiniViewForm.VideoGoGo(beg,MiniWndCoord);
+       end;
      end;
 
    end
-   else   panel2.Hide;
+   else
+   begin
+    panel2.Hide;
+    MiniViewForm.Hide;
+   end;
 
  //panel3.Show;
  //Panel3.Caption:= intToStr(MousePos) + '  ' + intToStr(sTrackBar1.Position)  + '  X=' + inttostr(X);
