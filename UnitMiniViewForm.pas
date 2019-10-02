@@ -41,7 +41,7 @@ end;
 procedure TMiniViewForm.VideoGo;
 var curPos: int64;
 begin
-  VideoEngineDshow9.InitializAuto(Form1.FileName,Panel1.Handle);
+  VideoEngineDshow9.InitializAuto(Form1.FileName,Panel1.Handle, Panel1);
   VideoEngineDshow9.SetWindowPosition(Panel1.Left,Panel1.Top,Panel1.Left+Panel1.Width, Panel1.Top+ Panel1.Height);
   VideoEngineDshow9.F_Play;
   form1.pMediaSeeking.GetCurrentPosition(curPos);

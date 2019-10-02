@@ -145,6 +145,7 @@ type
     Button2: TButton;
     Panel9: TPanel;
     Button3: TButton;
+    Button4: TButton;
     procedure FormResize(Sender: TObject);
     procedure N2Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -295,6 +296,7 @@ type
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
     procedure Button3Click(Sender: TObject);
+    procedure Button4Click(Sender: TObject);
 
 
 
@@ -2483,17 +2485,17 @@ procedure TForm1.Button2Click(Sender: TObject);
 
 begin
   eng1 := TVideoEngineDshow9.Create(Panel6.Handle);
-  eng1.InitializAuto('C:\tmp\Test5.avi',Panel6.Handle);
+  eng1.InitializAuto('C:\tmp\Test5.avi',Panel6.Handle, Panel6);
 
 
     eng2 := TVideoEngineDshow9.Create(Panel7.Handle);
-  eng2.InitializAuto('C:\tmp\Test5.avi',Panel7.Handle);
+  eng2.InitializAuto('C:\tmp\Test5.avi',Panel7.Handle, Panel7);
 
     eng3 := TVideoEngineDshow9.Create(Panel8.Handle);
-  eng3.InitializAuto('C:\tmp\Test5.avi',Panel8.Handle);
+  eng3.InitializAuto('C:\tmp\Test5.avi',Panel8.Handle, Panel8);
 
     eng4 := TVideoEngineDshow9.Create(Panel9.Handle);
-  eng4.InitializAuto('C:\tmp\Test5.avi',Panel9.Handle);
+  eng4.InitializAuto('C:\tmp\Test5.avi',Panel9.Handle, Panel9);
 
   eng1.Rate:=8;
   eng2.Rate:=8;
@@ -2508,6 +2510,14 @@ begin
            eng2.F_Play;
             eng3.F_Play;
              eng4.F_Play;
+end;
+
+procedure TForm1.Button4Click(Sender: TObject);
+begin
+       eng1.Rate:=2;
+  eng2.Rate:=2;
+  eng3.Rate:=2;
+  eng4.Rate:=2;
 end;
 
 end.

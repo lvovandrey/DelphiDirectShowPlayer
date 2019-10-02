@@ -18,7 +18,12 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, DirectShow9, ActiveX, ComObj;
+  Dialogs, DirectShow9, ActiveX, ComObj,
+  sSkinManager, StdCtrls, sButton, ExtCtrls, sPanel, sEdit,
+  acPopupCtrls, ToolWin, ComCtrls, acCoolBar, Buttons, sSpeedButton,
+  sBitBtn, acImage, sGroupBox, sLabel, sListBox, sMemo, sCheckBox,
+  acProgressBar, sTrackBar,  Menus,    Grids,
+  sDialogs, AppEvnts, sSpinEdit, Mask, sMaskEdit,ExtDlgs, acPathDialog;
 
 
 
@@ -64,7 +69,7 @@ type
 
 
     constructor Create(WindowHandle: OAHWND);                              //  В конструктор отсылаем информацию об окне в котором все происходит
-    procedure InitializAuto(RenderedFilePath:string; OwnerHandle:OAHWND); //автоматическая инициализация всех механизмов
+    procedure InitializAuto(RenderedFilePath:string; OwnerHandle:OAHWND; Panel1:TPanel); //автоматическая инициализация всех механизмов
                                                                           //принимает строку пути к файлу
                                                                           // и Handle поверхности вывода (например Panel1.Handle)
     procedure SetWindowPosition(Left:Integer;Top:Integer;Right:Integer;Bottom:Integer); // инкапсулирует одноименную DShow процедуру
@@ -91,7 +96,7 @@ end;
 
 
 //автоматическая инициализация всех механизмов и построение графа
-procedure TVideoEngineDshow9.InitializAuto(RenderedFilePath:string; OwnerHandle:OAHWND);  //принимает строку пути к файлу  и Handle поверхности вывода (например Panel1.Handle)
+procedure TVideoEngineDshow9.InitializAuto(RenderedFilePath:string; OwnerHandle:OAHWND; Panel1:TPanel);  //принимает строку пути к файлу  и Handle поверхности вывода (например Panel1.Handle)
 var hr: HRESULT;
 begin
 
@@ -152,6 +157,7 @@ begin
    pVideoWindow.Put_Owner(OwnerHandle);//Устанавливаем "владельца" окна
    pVideoWindow.Put_WindowStyle(WS_CHILD OR WS_CLIPSIBLINGS);//Стиль окна
    pVideoWindow.Put_MessageDrain(OwnerHandle);//указываем что владелец будет получать сообщения видео окна
+   pVideoWindow.SetWindowPosition(0,0,Panel1.ClientRect.Right,Panel1.ClientRect.Bottom);
 end;
 
 

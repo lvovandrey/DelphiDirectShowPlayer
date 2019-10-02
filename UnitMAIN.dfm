@@ -3028,6 +3028,15 @@ object Form1: TForm1
         TabOrder = 7
         OnClick = Button3Click
       end
+      object Button4: TButton
+        Left = 888
+        Top = 0
+        Width = 41
+        Height = 33
+        Caption = 'Button4'
+        TabOrder = 8
+        OnClick = Button4Click
+      end
     end
     object sPanel8: TsPanel
       Left = 1

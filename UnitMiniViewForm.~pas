@@ -9,16 +9,13 @@ uses
 type
   TMiniViewForm = class(TForm)
     Panel1: TPanel;
-    TimerHide: TTimer;
-    TimerSlowHide: TTimer;
     procedure FormCreate(Sender: TObject);
     procedure VideoGo;
     procedure VideoGoGo(position: int64; Coord:TPoint);
-    procedure HideSlow;
 
 
-    procedure Panel1DblClick(Sender: TObject);
-    procedure TimerHideTimer(Sender: TObject);
+
+
   private
     { Private declarations }
   public
@@ -64,42 +61,16 @@ begin
   VideoEngineDshow9.F_Play;
   VideoEngineDshow9.pCurrent:=position;
   VideoEngineDshow9.F_Pause;
-  TimerHide.Enabled:= true;
-end;
-
-
-
-procedure TMiniViewForm.Panel1DblClick(Sender: TObject);
-var curPos: int64;
-begin
-  VideoEngineDshow9.F_Play;
-  form1.pMediaSeeking.GetCurrentPosition(curPos);
-  VideoEngineDshow9.pCurrent:=curPos;
-  VideoEngineDshow9.F_Pause;
-end;
-
-procedure TMiniViewForm.TimerHideTimer(Sender: TObject);
-begin
-   HideSlow;
-   TimerHide.Enabled:=false;
-end;
-
-procedure TMiniViewForm.HideSlow;
-begin
-   timerSlowHide.Enabled:=false;
-   if AlphaBlendValue <= 0 then
-   begin
-      Hide;
-      AlphaBlendValue := 255;
-      timerSlowHide.Enabled:=false;
-   end
-   else
-   begin
-      AlphaBlendValue:=AlphaBlendValue-5;
-      timerSlowHide.Enabled:=true;
-   end;
 
 end;
+
+
+
+
+
+
+
+
 
 
 end.

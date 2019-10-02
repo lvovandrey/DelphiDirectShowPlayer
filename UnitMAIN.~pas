@@ -139,6 +139,12 @@ type
     sMemoTxtDir: TsMemo;
     Image1: TImage;
     Button1: TButton;
+    Panel6: TPanel;
+    Panel7: TPanel;
+    Panel8: TPanel;
+    Button2: TButton;
+    Panel9: TPanel;
+    Button3: TButton;
     procedure FormResize(Sender: TObject);
     procedure N2Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -287,6 +293,8 @@ type
     procedure sButton11Click(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure Button1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
 
 
 
@@ -353,7 +361,8 @@ var
 
   NN:integer;
 
- 
+  var eng1, eng2, eng3, eng4: TVideoEngineDshow9; //плееры для многооконки
+
 
 
 {  ОБЩИЕ ЗАМЕЧАНИЯ!
@@ -2468,6 +2477,37 @@ procedure TForm1.Button1Click(Sender: TObject);
 begin
   MiniViewForm.Show;
   //MiniViewForm.VideoGo;
+end;
+
+procedure TForm1.Button2Click(Sender: TObject);
+
+begin
+  eng1 := TVideoEngineDshow9.Create(Panel6.Handle);
+  eng1.InitializAuto('C:\tmp\Test5.avi',Panel6.Handle);
+
+
+    eng2 := TVideoEngineDshow9.Create(Panel7.Handle);
+  eng2.InitializAuto('C:\tmp\Test5.avi',Panel7.Handle);
+
+    eng3 := TVideoEngineDshow9.Create(Panel8.Handle);
+  eng3.InitializAuto('C:\tmp\Test5.avi',Panel8.Handle);
+
+    eng4 := TVideoEngineDshow9.Create(Panel9.Handle);
+  eng4.InitializAuto('C:\tmp\Test5.avi',Panel9.Handle);
+
+  eng1.Rate:=8;
+  eng2.Rate:=8;
+  eng3.Rate:=8;
+  eng4.Rate:=8;
+
+end;
+
+procedure TForm1.Button3Click(Sender: TObject);
+begin
+          eng1.F_Play;
+           eng2.F_Play;
+            eng3.F_Play;
+             eng4.F_Play;
 end;
 
 end.

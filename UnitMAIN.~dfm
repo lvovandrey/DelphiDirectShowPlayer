@@ -1,6 +1,6 @@
 object Form1: TForm1
-  Left = 541
-  Top = 229
+  Left = 229
+  Top = 131
   Width = 1022
   Height = 814
   Caption = #1042#1080#1076#1077#1086#1087#1083#1077#1077#1088' SMI '#1076#1083#1103' '#1053#1048#1048#1069#1057' 6.2.7'
@@ -3002,13 +3002,31 @@ object Form1: TForm1
         ImgUnchecked = 0
       end
       object Button1: TButton
-        Left = 688
+        Left = 640
         Top = 8
         Width = 75
         Height = 25
         Caption = 'Button1'
         TabOrder = 5
         OnClick = Button1Click
+      end
+      object Button2: TButton
+        Left = 720
+        Top = -3
+        Width = 75
+        Height = 25
+        Caption = 'Button1'
+        TabOrder = 6
+        OnClick = Button2Click
+      end
+      object Button3: TButton
+        Left = 800
+        Top = 5
+        Width = 75
+        Height = 25
+        Caption = 'Button1'
+        TabOrder = 7
+        OnClick = Button3Click
       end
     end
     object sPanel8: TsPanel
@@ -3318,13 +3336,68 @@ object Form1: TForm1
       object Panel1: TPanel
         Left = 1
         Top = 1
-        Width = 750
-        Height = 627
-        Align = alClient
+        Width = 392
+        Height = 312
         BevelOuter = bvNone
         Caption = 'Panel1'
-        Color = clBlack
+        Color = clMaroon
         TabOrder = 0
+        OnDblClick = Panel1DblClick
+        OnMouseDown = Panel1MouseDown
+        OnMouseMove = Panel1MouseMove
+        OnMouseUp = Panel1MouseUp
+      end
+      object Panel6: TPanel
+        Left = 1
+        Top = 320
+        Width = 392
+        Height = 308
+        BevelOuter = bvNone
+        Caption = 'Panel1'
+        Color = clGreen
+        TabOrder = 1
+        OnDblClick = Panel1DblClick
+        OnMouseDown = Panel1MouseDown
+        OnMouseMove = Panel1MouseMove
+        OnMouseUp = Panel1MouseUp
+      end
+      object Panel7: TPanel
+        Left = 400
+        Top = -7
+        Width = 361
+        Height = 320
+        BevelOuter = bvNone
+        Caption = 'Panel1'
+        Color = clOlive
+        TabOrder = 2
+        OnDblClick = Panel1DblClick
+        OnMouseDown = Panel1MouseDown
+        OnMouseMove = Panel1MouseMove
+        OnMouseUp = Panel1MouseUp
+      end
+      object Panel8: TPanel
+        Left = 401
+        Top = 320
+        Width = 352
+        Height = 313
+        BevelOuter = bvNone
+        Caption = 'Panel1'
+        Color = clNavy
+        TabOrder = 3
+        OnDblClick = Panel1DblClick
+        OnMouseDown = Panel1MouseDown
+        OnMouseMove = Panel1MouseMove
+        OnMouseUp = Panel1MouseUp
+      end
+      object Panel9: TPanel
+        Left = 0
+        Top = 0
+        Width = 385
+        Height = 305
+        BevelOuter = bvNone
+        Caption = 'Panel1'
+        Color = clGray
+        TabOrder = 4
         OnDblClick = Panel1DblClick
         OnMouseDown = Panel1MouseDown
         OnMouseMove = Panel1MouseMove
